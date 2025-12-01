@@ -14,7 +14,7 @@ function DemoApp() {
   ];
 
   const handleLogin = () => {
-    if (email === "test.qa@trimegah.com" && password === "Tr!m@12345") {
+    if (email === "test.qa@trimegah.com" && password === "password123") {
       setError("");
       setPage("shop");
     } else {
