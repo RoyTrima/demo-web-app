@@ -1,8 +1,93 @@
-
-body { font-family: Arial; background: #f4f4f4; }
-.container { max-width: 500px; margin: 40px auto; }
-.card { background: white; padding: 20px; border-radius: 8px; }
-input { width: 100%; padding: 8px; margin: 8px 0; }
-button { padding: 8px 14px; margin-top: 10px; }
-.row { display: flex; justify-content: space-between; padding: 8px 0; }
-.error { color: red; }
+:root{
+    --bg:#f6f7fb;
+    --card:#fff;
+    --text:#222;
+    --muted:#666;
+    --accent:#0066ff;
+    --danger:#e74c3c;
+    --success:#27ae60;
+  }
+  [data-theme="dark"]{
+    --bg:#0f1724;
+    --card:#0b1220;
+    --text:#e6eef8;
+    --muted:#9fb0c8;
+    --accent:#58a6ff;
+    --danger:#ff6b6b;
+    --success:#39d353;
+  }
+  *{box-sizing:border-box}
+  html,body,#root{height:100%}
+  body{
+    margin:0;
+    font-family:Inter, system-ui, -apple-system, "Helvetica Neue", Arial;
+    background:var(--bg);
+    color:var(--text);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+  }
+  .container{
+    width:100%;
+    max-width:760px;
+  }
+  .card{
+    background:var(--card);
+    border-radius:14px;
+    padding:28px;
+    box-shadow: 0 8px 30px rgba(16,24,40,0.08);
+    text-align:center;
+    position:relative;
+  }
+  .company-logo{
+    width:160px;
+    display:block;
+    margin:0 auto 18px auto;
+  }
+  .row{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px dashed rgba(0,0,0,0.04)}
+  input[type="text"],input[type="password"]{
+    width:100%;
+    padding:10px 12px;
+    border-radius:8px;
+    border:1px solid rgba(16,24,40,0.08);
+    margin:8px 0 12px 0;
+    background:transparent;
+    color:var(--text);
+  }
+  button{
+    background:var(--accent);
+    color:white;
+    padding:10px 14px;
+    border-radius:8px;
+    border:none;
+    cursor:pointer;
+    font-weight:600;
+  }
+  button.ghost{background:transparent;color:var(--accent);border:1px solid rgba(16,24,40,0.06)}
+  button.logout{background:var(--danger)}
+  .error{color:var(--danger);margin:8px 0}
+  .popup{
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:var(--success);
+    color:white;
+    padding:12px 18px;
+    border-radius:10px;
+    box-shadow:0 6px 20px rgba(2,6,23,0.2);
+    animation:popupInOut 2s ease forwards;
+    z-index:9999;
+    font-weight:600;
+  }
+  @keyframes popupInOut{
+    0%{opacity:0; transform:translateY(-6px)}
+    10%{opacity:1; transform:translateY(0)}
+    85%{opacity:1}
+    100%{opacity:0; transform:translateY(-6px)}
+  }
+  .controls{display:flex;gap:10px;align-items:center;justify-content:center;margin-bottom:12px}
+  .timer-box{display:inline-block;background:rgba(0,0,0,0.04);padding:8px 12px;border-radius:999px;font-weight:600;margin-bottom:12px}
+  .switch{display:inline-flex;align-items:center;gap:8px}
+  .footer{margin-top:18px;color:var(--muted);font-size:13px}
+  

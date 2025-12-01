@@ -1,16 +1,28 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>QA Demo App</title>
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <link rel="stylesheet" href="styles.css"/>
-  </head>
-  <body>
-    <div id="root"></div>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Demo Web App - Protected</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="root"></div>
 
-    <script type="text/babel" src="app.jsx"></script>
-  </body>
+  <!-- Config: akses durasi (ms) and stored (obfuscated) password seed
+       NOTE: encryption is client-side only (demo). -->
+  <script>
+    // ACCESS_DURATION_MS: session length in milliseconds (default 10 min)
+    window.__APP_CONFIG__ = {
+      ACCESS_DURATION_MS: 20 * 120 * 2000,
+      // --- WARNING: for client-side demo only ---
+      // We keep a tiny obfuscated string (not secure server-side).
+      // Actual check uses SHA-256 to compare input => this value is the plain seed "password12345"
+      // (You can change the string below if you want a different password.)
+      ACCESS_PASSWORD_SEED: "password12345"
+    };
+  </script>
+
+  <script type="module" src="app.jsx"></script>
+</body>
 </html>
